@@ -1,17 +1,61 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Overview of {{todayDate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<div *ngIf="stepcount == -1">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Loading...</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Loading...
+    </ion-card-content>
+  </ion-card>
+</div>  
+
+<div *ngIf="stepcount != -1">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Total Steps</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{stepcount}} Steps | {{distancecount}} Miles
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Total Active Calories Burned</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{calcount}} Calories
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Total Resting Calories Burned</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{restcount}} Calories
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Total Exercise Time</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{exericecount}} Minutes
+    </ion-card-content>
+  </ion-card>
+
+</div>
+
 </ion-content>

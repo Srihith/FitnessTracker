@@ -1,0 +1,21 @@
+<ion-app> 
+  <ion-content fullscreen>
+  <ion-searchbar (ionChange)="getFood($event)" animated></ion-searchbar>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{foodItem.calories}} Calories</ion-card-subtitle>
+      <ion-card-title>{{foodItem.name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Weight: {{foodItem.weight}} Grams
+      Carbs: {{foodItem.carbs}} Grams
+      Protien: {{foodItem.protien}} Grams
+      Fat: {{foodItem.fat}} Grams
+    </ion-card-content>
+     <ion-button (click)="add()">
+      <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-card>
+  </ion-content>
+</ion-app>

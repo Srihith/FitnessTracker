@@ -1,17 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Profile
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div *ngIf="!isSignedIn">
+    <h2>Sign Up</h2>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" #emailSignup></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" #passwordSignup></ion-input>
+    </ion-item>
+    <ion-button (click)="onSignup(emailSignup.value, passwordSignup.value)" expand="block">Sign Up</ion-button> 
+  </div>
+
+  <div *ngIf="!isSignedIn">
+    <h2>Sign In</h2>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" #email></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" #password></ion-input>
+    </ion-item>
+    <ion-button (click)="onSignIn(email.value, password.value)" expand="block">Sign Up</ion-button> 
+  </div>
+
+  <div *ngIf="!isSignedIn" (isLogout)="handleLogout" expand="block"></div>
+  
+  <div *ngIf="isSignedIn">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{currentUser}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <section>
+      <ion-button (click)="logout()" expand="block">Logout</ion-button>
+    </section>
+  </div>
+
 </ion-content>
+
+
